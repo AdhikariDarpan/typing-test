@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced Typing Test</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="template.js" defer></script>
+  <script src="typing.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Typing Speed Test</h1>
+      <p>Test your typing speed and accuracy in multiple languages!</p>
+    </header>
+
+    <div class="settings">
+      <div class="setting">
+        <label for="levels">Select Difficulty:</label>
+        <select id="levels" class="custom-select">
+          <option value="normal">Normal</option>
+          <option value="medium">Intermediate</option>
+          <option value="difficult">Hard</option>
+        </select>
+      </div>
+      <div class="setting">
+        <label for="languages">Select Language:</label>
+        <select id="languages" class="custom-select">
+          <option value="en">English</option>
+          <option value="ne">Nepali</option>
+          <option value="hi">Hindi</option>
+          <option value="zh">Chinese</option>
+          <option value="ko">Korean</option>
+          <option value="ja">Japanese</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="control-buttons">
+      <button id="try-again" class="btn btn-primary">Try Again</button>
+      <button id="next-btn" class="btn btn-secondary">Next</button>
+    </div>
+
+    <div class="timer">
+      <label for="time">Elapsed Time:</label>
+      <span id="time">0:00</span>
+    </div>
+
+    <div id="paragraph" class="paragraph"></div>
+
+    <textarea id="input-box" class="input-box" placeholder="Start typing here..."></textarea>
+  </div>
+
+  <div class="result-container" >
+    <div id="result-content">
+      <div id="results"> </div>
+    </div>
+  </div>
+  <footer>
+    <span
+      ><i>&copy;</i><span id="date"></span
+      ><a href="https://darpanadhikari.com.np" target="_blank">
+        DarpanAdhikari</a
+      >
+      || All right reserved</span
+    >
+  </footer>
+</body>
+</html>
