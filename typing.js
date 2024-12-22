@@ -102,7 +102,7 @@ function displayResults() {
     .filter((word, index) => originalText.split(/\s+/)[index] === word).length;
 
   const wpm = Math.round(wordCount / totalTime);
-  const ccpm = Math.round(correctChars / totalTime);
+  const ccpm = Math.round((correctChars / totalTime)/60);
   const wrongWords = wordCount - correctWords;
 
   const accuracy = ((correctChars / (correctChars + incorrectCharacters)) * 100).toFixed(2);
@@ -110,7 +110,7 @@ function displayResults() {
   resultsEl.innerHTML = `
     <h1 style="text-align: center;">Results</h1>
     <p><strong>Words Per Minute:</strong> ${wpm}</p>
-    <p><strong>Correct Characters Per Minute:</strong> ${ccpm}</p>
+    <p><strong>Correct Char/Sec:</strong> ${ccpm}</p>
     <p><strong>Correct:</strong> ${correctWords}</p>
     <p><strong>Wrong:</strong> ${wrongWords}</p>
     <p><strong>Accuracy:</strong> ${accuracy}%</p>
