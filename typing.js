@@ -132,6 +132,7 @@ function resetTimer() {
   elapsedTime = 0;
   incorrectCharacters = 0; 
   clearInterval(timerInterval);
+  document.getElementById("time").classList.remove('started');
   document.getElementById("time").textContent = "0:00";
   startTime = null;
   paragraphEl.querySelectorAll("span")?.forEach(sp=>{
@@ -144,6 +145,7 @@ inputBox.addEventListener("input", () => {
   if (!startTime) {
     startTime = Date.now();
     timerInterval = setInterval(updateTimer, 1000);
+    document.getElementById("time").classList.add('started');
   }
   
   const typedText = inputBox.value;
