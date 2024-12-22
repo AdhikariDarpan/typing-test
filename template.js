@@ -159,7 +159,7 @@ const typingTestParagraphs = {
       "한국의 전통 종교인 불교와 유교는 한국 사회와 문화에 큰 영향을 미쳤으며, 오늘날에도 많은 사람들이 이들의 영향을 받고 있습니다.",
     ],
   },
-  midium: {
+  medium: {
     en: [
       "Every year, I travel to a new city. Last summer, I went to London. It was my first time there, and I was excited to see the famous Big Ben. The city was busy, but the people were very friendly. I visited museums, parks, and tried local food. I really enjoyed the trip and hope to go again soon.",
       "I have always been interested in learning about space. The universe is full of mysteries, and scientists are still discovering new things. The planets, stars, and galaxies are fascinating. I hope one day to visit space. It would be an amazing adventure.",
