@@ -107,7 +107,7 @@ function displayResults() {
     <h1 style="text-align: center;">Results</h1>
     <p><strong>Words Per Minute:</strong> ${wpm}</p>
     <p><strong>Correct Characters Per Minute:</strong> ${ccpm}</p>
-    <p><strong>Incorrect:</strong> ${correctWords}</p>
+    <p><strong>Correct:</strong> ${correctWords}</p>
     <p><strong>Wrong:</strong> ${wrongWords}</p>
     <p><strong>Accuracy:</strong> ${accuracy}%</p>
   `;
