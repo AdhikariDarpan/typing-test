@@ -108,7 +108,6 @@ function displayResults() {
   const accuracy = ((correctChars / (correctChars + incorrectCharacters)) * 100).toFixed(2);
 
   resultsEl.innerHTML = `
-    <h1 style="text-align: center;">Results</h1>
     <p><strong>Words Per Minute:</strong> ${wpm}</p>
     <p><strong>Correct Char/Sec:</strong> ${ccpm}</p>
     <p><strong>Correct:</strong> ${correctWords}</p>
