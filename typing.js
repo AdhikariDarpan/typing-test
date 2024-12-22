@@ -21,46 +21,50 @@ function getRandomParagraph(paragraphList) {
 }
 
 function randomizeWords(text) {
-  const words = text.split(/\s+/); 
+  const words = text.split(/\s+/);
   let swappedIndexes = new Set();
-
-  const validWords = words.filter(word => word.length >= 3);
-  for (let i = validWords.length - 1; i > 0; i--) {
+  const complexWords = words.filter(word => word.length >= 3);
+  for (let i = complexWords.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
 
     if (swappedIndexes.has(i) || swappedIndexes.has(j)) {
       continue;
     }
-    [validWords[i], validWords[j]] = [validWords[j], validWords[i]];
+    [complexWords[i], complexWords[j]] = [complexWords[j], complexWords[i]];
     swappedIndexes.add(i);
     swappedIndexes.add(j);
   }
   let wordIndex = 0;
   const shuffledText = words.map(word => {
     if (word.length >= 3) {
-      return validWords[wordIndex++];
+      return complexWords[wordIndex++];
     }
-    return word;
+    return word; 
   });
 
-  return shuffledText.join(" "); 
+  return shuffledText.join(" ");
 }
+
 function fetchParagraph(language,level) {
   try {
-    if (!typingTestParagraphs[level][language]) {
-      throw new Error("Language not supported");
+    sessionStorage.setItem('level',level);
+    sessionStorage.setItem('lang',language);
+    if(level == 'extreme'){
+      const paragraphList = typingTestParagraphs['difficult'][language];
+      originalText = randomizeWords(getRandomParagraph(paragraphList, language));
     }else{
-      sessionStorage.setItem('level',level);
-      sessionStorage.setItem('lang',language);
+      if (!typingTestParagraphs[level][language]) {
+        throw new Error("Language not supported");
+      }
+      const paragraphList = typingTestParagraphs[level][language];
+      originalText = getRandomParagraph(paragraphList, language);
     }
-    const paragraphList = typingTestParagraphs[level][language];
-    originalText = getRandomParagraph(paragraphList, language);
     displayParagraph(originalText);
     resetTimer();
     resetInputBox();
     inputBox.focus();
   } catch (error) {
-    paragraphEl.textContent = `Error fetching paragraph for ${language}. Please select another language.`;
+    paragraphEl.textContent = `Error fetching paragraph. Please select another language or level.`;
     resetInputBox(true);
   }
 }
@@ -214,4 +218,8 @@ document.addEventListener('copy',(e)=>{
     "Don't be smart"
   )
   e.preventDefault();
+})
+inputBox.addEventListener('paste',(e)=>{
+  e.preventDefault();
+  inputBox.value += "Don't be smart";
 })
